@@ -1,0 +1,32 @@
+local sgui = game:GetService("StarterGui");
+sgui:SetCore("SendNotification", {
+Title = "Made by Set8",
+Text = "Egg Waypoints Active!",
+}
+)
+while true do
+    for i,v in pairs (game.Workspace.ObjectSelection:GetChildren()) do
+        if (v.Name == "CollectEgg") then
+            if (v.CollectEgg:FindFirstChild("Waypoint")) then
+                
+            else
+                local Part = Instance.new("Part", v.CollectEgg)
+                local Mesh = Instance.new("CylinderMesh", Part)
+                Part.Name = "Waypoint"
+                Part.Size = Vector3.new(10, 4000, 10)
+                Part.BrickColor = BrickColor.Blue()
+                Part.Anchored = true
+                Part.Transparency = 0.3
+                Part.CanCollide = false;
+                spawn(function()
+                    while true do
+                        Part.Position = v.CollectEgg.Position
+                        wait()
+                    end
+                end)
+                Part.Material = Enum.Material.Neon
+            end
+        end
+    end
+    wait()
+end
