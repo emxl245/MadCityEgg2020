@@ -1,6 +1,6 @@
 local sgui = game:GetService("StarterGui");
 sgui:SetCore("SendNotification", {
-Title = "Made by Set8",
+Title = "Made by emxl#8163",
 Text = "Egg Waypoints Active!",
 }
 )
